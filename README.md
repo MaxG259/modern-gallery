@@ -105,9 +105,6 @@ npm run build
 # Загрузите папку dist
 ```
 
-### GitHub Pages
-Автоматический деплой через GitHub Actions (файл `.github/workflows/deploy.yml`)
-
 ---
 
 **Автор**: MAXG259 - Frontend Developer
