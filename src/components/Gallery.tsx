@@ -1,5 +1,6 @@
 import { useAuth } from '../contexts/useAuth';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import { InteractiveGallery } from './gallery/InteractiveGallery';
 import type { Photo } from '../types/Photo';
 import './gallery/ButtonHover.css';
@@ -223,6 +224,11 @@ const portfolioPhotos: Photo[] = [
 export default function Gallery() {
   const { logout } = useAuth();
   const navigate = useNavigate();
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleLogout = () => {
     logout();
