@@ -91,20 +91,6 @@ npm run lint
 - Transform для GPU-ускорения
 - Hover эффекты с масштабированием
 
-## 📦 Деплой
-
-### Vercel
-```bash
-npm install -g vercel
-vercel --prod
-```
-
-### Netlify
-```bash
-npm run build
-# Загрузите папку dist
-```
-
 ---
 
 **Автор**: MAXG259 - Frontend Developer
