@@ -1,0 +1,299 @@
+/* ===== ГАЛЕРЕЯ В СТИЛЕ CODEPEN С НАКЛОНОМ ===== */
+
+/* Убираем все отступы для галереи */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.gallery-container {
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  font-family: 'BIOSFont', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.gallery-container .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px auto;
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.card {
+  flex: 1;
+  min-width: 120px;
+  max-width: 200px;
+  /* Use GPU-friendly transforms instead of layout-changing properties */
+  transition: transform 300ms ease, box-shadow 300ms ease;
+  height: 75vmin;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  contain: layout paint;
+}
+
+.card__head {
+  color: black;
+  background: rgba(106, 106, 106, 0.75);
+  padding: 0.5em;
+  transform: rotate(-90deg);
+  transform-origin: 0% 0%;
+  transition: background-color 200ms ease, color 200ms ease;
+  min-width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 1em;
+  white-space: nowrap;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-family: 'BIOSFont', monospace;
+  will-change: background-color, color;
+}
+
+.card:hover {
+  /* Avoid reflow by scaling rather than changing flex-grow */
+  transform: scale(1.06);
+  z-index: 2;
+}
+
+.card:hover img {
+  filter: grayscale(0);
+}
+
+.card:hover .card__head {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 300ms ease, transform 300ms ease;
+  filter: grayscale(100%);
+  will-change: filter, transform;
+}
+
+.card:not(:last-child) {
+  margin-right: 1em;
+}
+
+/* ===== АДАПТИВНЫЕ СТИЛИ ===== */
+
+/* Для большого количества фотографий (35+) */
+@media screen and (min-width: 1400px) {
+  .gallery-container .container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8em;
+    margin: clamp(8px, 1.5vw, 18px) auto;
+  }
+  
+  .card {
+    min-width: 150px;
+    max-width: 180px;
+    height: 60vmin;
+  }
+}
+
+/* Большие экраны */
+@media screen and (min-width: 1920px) {
+  .gallery-container .container {
+    margin: clamp(10px, 2vw, 20px) auto;
+    justify-content: center;
+  }
+  
+  .card {
+    height: 80vmin;
+  }
+  
+  .card__head {
+    font-size: 1.2em;
+  }
+  
+  .card:hover .card__head {
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Средние экраны */
+@media screen and (max-width: 1200px) and (min-width: 768px) {
+  .gallery-container .container {
+    margin: clamp(5px, 1vw, 10px) auto;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    justify-content: center;
+  }
+  
+  .card {
+    height: 70vmin;
+    min-width: 100px;
+    max-width: 150px;
+  }
+  
+  .card:not(:last-child) {
+    margin-right: 0;
+  }
+}
+
+/* Планшеты */
+@media screen and (max-width: 767px) and (min-width: 481px) {
+    .gallery-container .container {
+      margin: 2px auto;
+      flex-wrap: wrap;
+      gap: 0.4em;
+      justify-content: center;
+    }
+  
+  .card {
+    height: 60vmin;
+    min-width: 80px;
+    max-width: 120px;
+  }
+  
+  .card:not(:last-child) {
+    margin-right: 0;
+  }
+  
+  .card__head {
+    font-size: 0.9em;
+  }
+  
+  .card:hover .card__head {
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Мобильные устройства */
+@media screen and (max-width: 480px) {
+  .gallery-container {
+    padding: 0;
+  }
+  
+  .gallery-container .container {
+    margin: 0;
+    padding: 0 10px;
+    flex-direction: column;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card {
+    width: 100% !important;
+    height: 50vmin !important;
+    min-width: unset !important;
+    max-width: unset !important;
+    flex: none !important;
+    margin: 0 auto 1em auto;
+  }
+  
+  .card__head {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: none !important;
+    background: rgba(106, 106, 106, 0.9) !important;
+    color: white !important;
+    padding: 0.5em !important;
+    text-align: center !important;
+    font-size: 0.9em !important;
+    margin: 0 !important;
+  }
+}
+
+/* iPhone 12 Pro и подобные устройства */
+@media screen and (max-width: 390px) {
+  .gallery-container {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .gallery-container .container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  
+  .gallery-container .container .card {
+    height: 60vmin;
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    flex: none;
+    margin-bottom: 0.5em;
+  }
+  
+  .gallery-container .container .card:not(:last-child) {
+    margin-right: 0;
+  }
+  
+  .gallery-container .container .card__head {
+    font-size: 0.8em;
+    transform: rotate(0deg);
+    position: static;
+    background: rgba(106, 106, 106, 0.9);
+    color: white;
+    padding: 0.3em;
+    text-align: center;
+  }
+  
+  .gallery-container .container .card:hover .card__head {
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Очень маленькие экраны */
+@media screen and (max-width: 320px) {
+  .gallery-container .container {
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .gallery-container .container .card {
+    height: 35vmin;
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    flex: none;
+  }
+  
+  .card__head {
+    font-size: 0.7em;
+  }
+}
+
+/* Respect users with reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card img,
+  .card__head {
+    transition: none !important;
+  }
+}

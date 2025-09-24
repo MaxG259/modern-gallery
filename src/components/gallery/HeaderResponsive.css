@@ -1,0 +1,32 @@
+/* Адаптивный хедер для мобильных устройств */
+@media screen and (max-width: 768px) {
+  .header-grid {
+    grid-template-columns: 1fr !important;
+    grid-template-areas: 
+      "title"
+      "buttons" !important;
+    gap: clamp(5px, 2vw, 10px) !important;
+    text-align: center !important;
+  }
+  
+  .header-title {
+    text-align: center !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .header-buttons {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-grid {
+    padding: clamp(10px, 2vw, 20px) clamp(15px, 4vw, 25px) !important;
+    gap: clamp(3px, 1.5vw, 8px) !important;
+  }
+  
+  .header-buttons {
+    gap: clamp(6px, 2vw, 12px) !important;
+  }
+}

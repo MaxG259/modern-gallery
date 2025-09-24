@@ -1,0 +1,17 @@
+/* Стили для основного приложения */
+.app-container {
+  min-height: 100vh;
+  background-color: #000;
+}
+
+/* Стили для защищенных маршрутов */
+.protected-route {
+  width: 100%;
+}
+
+/* Стили для роутинга */
+.routes-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000;
+}

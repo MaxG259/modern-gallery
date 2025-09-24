@@ -1,0 +1,89 @@
+/* ===== УЛУЧШЕННЫЕ АНИМАЦИИ ДЛЯ ПЕРЕХОДОВ ===== */
+
+/* Обертка для анимации */
+.page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== СКРОЛЛ ВНИЗ (основная анимация) ===== */
+.slide-down {
+  animation: slideDownImproved 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes slideDownImproved {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== СКРОЛЛ ВВЕРХ (для возврата на логин) ===== */
+.slide-up {
+  animation: slideUpImproved 0.6s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+}
+
+@keyframes slideUpImproved {
+  from {
+    opacity: 0;
+    transform: translateY(80px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== СПЕЦИАЛЬНАЯ АНИМАЦИЯ ДЛЯ LOADING ===== */
+.loading-slide {
+  animation: loadingSlideImproved 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes loadingSlideImproved {
+  from {
+    opacity: 0;
+    transform: translateY(-100px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== ВОЛНА ДЛЯ 404 ===== */
+.wave {
+  animation: waveImproved 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes waveImproved {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scaleY(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+}
+
+/* ===== ПЛАВНОЕ ИСЧЕЗНОВЕНИЕ ПРЕДЫДУЩЕЙ СТРАНИЦЫ ===== */
+.fade-out {
+  animation: fadeOut 0.4s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}

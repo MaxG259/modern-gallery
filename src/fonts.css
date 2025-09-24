@@ -1,0 +1,33 @@
+/* Кастомные шрифты для проекта */
+
+@font-face {
+  font-family: '404Digits';
+  src: url('/fonts/404-font.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Для быстрой загрузки */
+}
+
+/* Fallback шрифты если кастомный не загрузится */
+@font-face {
+  font-family: '404DigitsFallback';
+  src: local('Arial Black'),
+       local('Impact'),
+       local('Helvetica');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Моноширинные шрифты для эффекта BIOS/синего экрана */
+@font-face {
+  font-family: 'BIOSFont';
+  src: local('Consolas'),
+       local('Monaco'),
+       local('Courier New'),
+       local('Lucida Console'),
+       local('Menlo'),
+       local('Ubuntu Mono'),
+       monospace;
+  font-weight: normal;
+  font-style: normal;
+}
