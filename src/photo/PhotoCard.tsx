@@ -32,6 +32,7 @@ export default function PhotoCard({ photo, onPhotoClick }: PhotoCardProps) {
         <img
           src={photo.src}
           alt={photo.alt}
+          loading="lazy"
           style={{ 
             width: '100%', 
             height: '100%', 
